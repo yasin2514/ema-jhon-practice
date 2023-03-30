@@ -13,7 +13,7 @@ const Shop = (props) => {
                 <h5 className='card-title'>{name}</h5>
                 <p>Price: {price}</p>
                 <p>Manufacturer: {seller}</p>
-                <p>Rating: {ratings}</p>
+                <p>Rating: {ratings} Stars</p>
             </div>
             <button className='card-footer' onClick={() => props.handleAddToCart(props.product)}>
                 Add to Cart <FontAwesomeIcon icon={faShoppingCart} />
