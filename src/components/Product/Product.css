@@ -1,0 +1,45 @@
+.card-details {
+    border: 1px solid #caccce;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image {
+    margin: 7px;
+}
+
+.card-image img {
+    border-radius: 8px;
+    width: 100%;
+}
+
+.card-info {
+    margin: 10px 14px 50px 14px;
+}
+
+.card-title {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.0015em;
+}
+
+.card-info p {
+    margin: 5px 0px;
+}
+
+.card-footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border: 0;
+    padding: 10px 0px;
+    background-color: #FFE0B3;
+}
+
+.card-footer:hover {
+    background-color: #FF9900;
+}

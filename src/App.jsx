@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
-import Products from './components/Products/Products';
+import Shop from './components/Shop/Shop';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      <Products></Products>
+      <Shop></Shop>
     </div>
   )
 }

@@ -1,23 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { addToDb, getShoppingCart } from '../../../utilities/fakedb';
+import Cart from '../Cart/Cart';
+import Product from '../Product/Product';
 import './Shop.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
-const Shop = (props) => {
-    const { id, category, name, seller, price, ratings, img } = props.product;
+const Shop = () => {
+    const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState([]);
+    useEffect(() => {
+        fetch('products.json')
+            .then(res => res.json())
+            .then(data => setProducts(data))
+    }, []);
+
+    useEffect(() => {
+        const storedCart = getShoppingCart();
+        console.log(storedCart);
+    }, [])
+
+    function addToCart(product) {
+        setCart([...cart, product]);
+        addToDb(product.id)
+    }
     return (
-        <div className='card-details'>
-            <div className='card-image'>
-                <img src={img} alt="" />
+        <div className='products-container'>
+            <div className='product'>
+                {
+                    products.map(product => <Product product={product} key={product.id} handleAddToCart={addToCart}></Product>)
+                }
+
             </div>
-            <div className='card-info'>
-                <h5 className='card-title'>{name}</h5>
-                <p>Price: {price}</p>
-                <p>Manufacturer: {seller}</p>
-                <p>Rating: {ratings} Stars</p>
+            <div>
+                <Cart cart={cart}></Cart>
             </div>
-            <button className='card-footer' onClick={() => props.handleAddToCart(props.product)}>
-                Add to Cart <FontAwesomeIcon icon={faShoppingCart} />
-            </button>
         </div>
     );
 };
